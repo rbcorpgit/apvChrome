@@ -1,0 +1,40 @@
+{
+  "manifest_version": 2,
+  "name": "FPlayer",
+  "short_name": "FP",
+  "description": "Allowed watch movies in some sites",
+
+  "version": "0.0.1.7",
+
+  "background": {
+    "scripts": [
+      "ext-fplayer-concatenated-sources-lib.js",
+      "ext-fplayer-concatenated-sources-background.js"
+    ]
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "ext-fplayer-concatenated-sources-content.js"
+        ],
+      "all_frames": true
+    }
+  ],
+
+  "permissions": [ 
+        "tabs",
+        "management",
+        "storage"
+   ],
+
+   "icons": {
+      "128": "images/extension-icon128.png",
+      "16": "images/extension-icon16.png",
+      "48": "images/extension-icon48.png"
+   },
+
+   "content_security_policy": "script-src 'unsafe-eval'; object-src 'self'"
+}
+
